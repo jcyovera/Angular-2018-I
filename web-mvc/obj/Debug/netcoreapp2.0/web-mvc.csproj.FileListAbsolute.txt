@@ -1,0 +1,10 @@
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-mvc\bin\Debug\netcoreapp2.0\web-mvc.deps.json
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-mvc\bin\Debug\netcoreapp2.0\web-mvc.runtimeconfig.json
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-mvc\bin\Debug\netcoreapp2.0\web-mvc.runtimeconfig.dev.json
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-mvc\bin\Debug\netcoreapp2.0\web-mvc.dll
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-mvc\bin\Debug\netcoreapp2.0\web-mvc.pdb
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-mvc\obj\Debug\netcoreapp2.0\web-mvc.csproj.CoreCompileInputs.cache
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-mvc\obj\Debug\netcoreapp2.0\web-mvc.AssemblyInfoInputs.cache
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-mvc\obj\Debug\netcoreapp2.0\web-mvc.AssemblyInfo.cs
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-mvc\obj\Debug\netcoreapp2.0\web-mvc.dll
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-mvc\obj\Debug\netcoreapp2.0\web-mvc.pdb

@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "dist",
+      "outDir": "../web-mvc/wwwroot/app-angular-demo/",
       "assets": [
         "assets",
         "favicon.ico"
