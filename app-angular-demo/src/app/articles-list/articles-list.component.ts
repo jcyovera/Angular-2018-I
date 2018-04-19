@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Article } from '../_models/article.model';
 
 @Component({
   selector: 'app-articles-list',
@@ -7,12 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticlesListComponent implements OnInit {
   title = 'awoifkashfk!';
-  articles:any[];
+  articles:Article[];
 
   constructor() { 
     this.articles=[
-      { title:"demo angular", lin:"http://angular.io" },
-      { title:"demo angular 2", lin:"http://angular.io" }
+      new Article("demo angular", "http://angular.io"),
+      new Article("demo angular 2","http://angular.io"),
+      new Article('Angular 2', 'http://angular.io', 3),
+      new Article('Fullstack', 'http://fullstack.io', 2),
+      new Article('Angular Homepage', 'http://angular.io', 1),
     ]
   }
 
