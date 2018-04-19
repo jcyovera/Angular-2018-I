@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ArticlesListComponent } from './articles-list/articles-list.component';
+import { ManagerArticlesComponent } from './manager-articles/manager-articles.component';
 
 let routes: Routes = [
-    { path: '', component: ArticlesListComponent},
+    { path: '', component: ManagerArticlesComponent},
     { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

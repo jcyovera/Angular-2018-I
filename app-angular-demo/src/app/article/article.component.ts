@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Article } from '../_models/article.model';
 
 @Component({
@@ -7,12 +7,20 @@ import { Article } from '../_models/article.model';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
-  @Input() article:Article;
+  @Input() article: Article;
 
   constructor() { }
 
   ngOnInit() {
-    
+
+  }
+  voteUp(): boolean {
+    this.article.voteUp();
+    return false;
+  }
+  voteDown(): boolean {
+    this.article.voteDown();
+    return false;
   }
 
 }
