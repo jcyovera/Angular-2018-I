@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../_models/article.model';
+import { ArticlesService } from '../shared/articles.service';
 
 @Component({
   selector: 'app-articles-list',
@@ -10,17 +11,15 @@ export class ArticlesListComponent implements OnInit {
   title = 'awoifkashfk!';
   articles:Article[];
 
-  constructor() { 
-    this.articles=[
-      new Article("demo angular", "http://angular.io"),
-      new Article("demo angular 2","http://angular.io"),
-      new Article('Angular 2', 'http://angular.io', 3),
-      new Article('Fullstack', 'http://fullstack.io', 2),
-      new Article('Angular Homepage', 'http://angular.io', 1),
-    ]
+  constructor(private articleService:ArticlesService) { 
   }
 
   ngOnInit() {
+    this.articles=this.articleService.articles;
+  }
+
+  sortingByPoints(){
+    return this.articles.sort((a:Article, b:Article)=> b.votes - a.votes);
   }
   
 

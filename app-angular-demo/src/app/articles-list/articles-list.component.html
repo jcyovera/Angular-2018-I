@@ -1,6 +1,3 @@
-<p>
-  articles-list works! {{title}}
-</p>
-<div *ngFor="let article of articles">
- <app-article [article]="article"></app-article>
+<div class="ui grid posts">
+  <app-article *ngFor="let article of sortingByPoints()" [article]="article"></app-article>
 </div>

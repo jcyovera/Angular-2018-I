@@ -7,6 +7,7 @@ import { ArticlesListComponent } from './articles-list/articles-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ArticleComponent } from './article/article.component';
 import { ManagerArticlesComponent } from './manager-articles/manager-articles.component';
+import { ArticlesService } from './shared/articles.service';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { ManagerArticlesComponent } from './manager-articles/manager-articles.co
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ArticlesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
