@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ArticleComponent } from './article/article.component';
 import { ManagerArticlesComponent } from './manager-articles/manager-articles.component';
 import { ArticlesService } from './shared/articles.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ArticlesService } from './shared/articles.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [ArticlesService],
   bootstrap: [AppComponent]

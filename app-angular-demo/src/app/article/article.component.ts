@@ -22,5 +22,16 @@ export class ArticleComponent implements OnInit {
     this.article.voteDown();
     return false;
   }
-
+    // domain() is a utility function that extracts
+    // the domain from a URL, which we'll explain shortly
+    domain(link): string {
+      try {
+        // e.g. http://foo.com/path/to/bar
+        const domainAndPath: string = link.split('//')[1];
+        // e.g. foo.com/path/to/bar
+        return domainAndPath.split('/')[0];
+      } catch (err) {
+        return null;
+      }
+    }
 }
