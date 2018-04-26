@@ -1,19 +1,18 @@
 <!-- Menu Bar -->
 <div class="ui menu">
-    <div class="ui container">
-      <a href="#" [routerLink]="['']"  class="header item">Home
-      </a>
-      <div class="header item borderless">
-        <h1 class="ui header">
-          Simple App
-        </h1>
-      </div>
+  <div class="ui container">
+    <a href="#" [routerLink]="['']"  class="header item">Home
+    </a>
+    <a href="#" [routerLink]="['new-article']" class="header item">New</a>
+    <div class="header item borderless">
+      <h1 class="ui header">
+        Simple App
+      </h1>
     </div>
   </div>
-  <div class="">
-      <router-outlet></router-outlet>
-  </div>
-  
-  
-  
+</div>
+<div class="">
+    <router-outlet></router-outlet>
+</div>
+
 

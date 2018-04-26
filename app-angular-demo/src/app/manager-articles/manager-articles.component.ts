@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manager-articles.component.scss']
 })
 export class ManagerArticlesComponent implements OnInit {
+  filters: MyApp.Models.IArticleFilterParam = {
+    sortBy: "",
+    searchText: "",
+    pageNumber: undefined,
+    pageSize: undefined
+  }
 
   constructor() { }
 

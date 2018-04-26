@@ -1,7 +1,12 @@
 <div class="ui grid">
-  <div class="four column row">
-    <div class="ui main text container">
-      <app-articles-list></app-articles-list>
+  <div class="two column row">
+    <div class="right floated column">
+        <app-articles-filter (onUpdateFilters)="filters=$event"></app-articles-filter>
     </div>
+  </div>
+  <div class="four column row">
+      <div class="ui main text container">
+      <app-articles-list *ngIf="!!filters.sortBy" [sortBy]="filters.sortBy"></app-articles-list>
+      </div>
   </div>
 </div>

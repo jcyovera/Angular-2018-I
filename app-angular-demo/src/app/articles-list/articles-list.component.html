@@ -1,3 +1,10 @@
 <div class="ui grid posts">
-  <app-article *ngFor="let article of articles" [article]="article" class="row"></app-article>
-</div>
+    <!--<app-article
+      *ngFor="let article of sortedArticles(sortValue)"
+      [article]="article">
+    </app-article>-->
+    <app-article
+      *ngFor="let article of articles"
+      [article]="article">
+    </app-article>
+  </div>

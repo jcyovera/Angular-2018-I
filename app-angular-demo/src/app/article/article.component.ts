@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, HostBinding, Input } from '@angular/core';
 import { Article } from '../_models/article.model';
 
 @Component({
@@ -7,26 +7,33 @@ import { Article } from '../_models/article.model';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
+  @HostBinding('attr.class') cssClass = 'row';
   @Input() article: Article;
 
-  constructor() { }
-
-  ngOnInit() {
-
+  constructor() {
+    // article is populated by the Input now,
+    // so we don't need anything here
   }
-  voteUp(): boolean {
-    this.article.voteUp();
+
+  voteUp(votes): boolean {
+    let currentVotes= +votes;
+    currentVotes += 1;
+    this.article.votes=currentVotes;
     return false;
   }
-  voteDown(): boolean {
-    this.article.voteDown();
+
+  voteDown(votes): boolean {
+    let currentVotes= +votes;
+    currentVotes -= 1;
+    this.article.votes=currentVotes;
     return false;
   }
-    // domain() is a utility function that extracts
+  // domain() is a utility function that extracts
     // the domain from a URL, which we'll explain shortly
     domain(link): string {
       try {
         // e.g. http://foo.com/path/to/bar
+        console.log("link",link);
         const domainAndPath: string = link.split('//')[1];
         // e.g. foo.com/path/to/bar
         return domainAndPath.split('/')[0];
@@ -34,4 +41,8 @@ export class ArticleComponent implements OnInit {
         return null;
       }
     }
+
+  ngOnInit() {
+  }
+
 }
