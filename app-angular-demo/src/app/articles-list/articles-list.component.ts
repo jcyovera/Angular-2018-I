@@ -2,6 +2,8 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Article } from '../_models/article.model';
 import { ArticlesService } from '../shared/articles.service';
 import { SortingValues } from '../_models/enumerations';
+import { Observable, Subscription } from "rxjs/Rx";
+import { select } from '@angular-redux/store';
 
 @Component({
   selector: 'app-articles-list',
@@ -21,6 +23,8 @@ export class ArticlesListComponent implements OnInit, OnChanges {
   @Input() set sortBy(value: string) {
     this.filters.sortBy = value;
   }
+  @select(['articleState', 'articles']) articles$: Observable<any>;
+  articlesSubscription: Subscription;
 
   constructor(private articleService: ArticlesService) { }
   sortedArticles(sortValue?: any): Article[] {
@@ -54,7 +58,12 @@ export class ArticlesListComponent implements OnInit, OnChanges {
   }
   ngOnInit() {
     //this.articles = this.articleService.articles;
-    this.loadList();
+    //this.loadList();
+    this.articlesSubscription = this.articles$.distinctUntilChanged().subscribe((availableColumns) => {
+      this.articles = availableColumns;
+      console.log("getting values from store");
+			//this.cd.detectChanges() ;public cd: ChangeDetectorRef
+		});
   }
   ngOnChanges(): void {
     console.log("changing", this.filters.sortBy);

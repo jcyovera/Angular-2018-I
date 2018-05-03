@@ -13,8 +13,12 @@ import { ArticlesFilterComponent } from './articles-filter/articles-filter.compo
 import { ManagerArticlesComponent } from './manager-articles/manager-articles.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store';
-import { CounterActions } from './store/app.action';
-import { IAppState, rootReducer, INITIAL_STATE } from './store/reducer';
+import { rootReducer, } from './store/reducers/reducer';
+import { CounterActions } from './store/actions/app.action';
+import { IAppState } from './store/models/state';
+import { InitialArticleStateActions } from './store/actions/article.action';
+import { InitialArticleStateEpics } from './store/epics/article.epic';
+import { createEpicMiddleware } from 'redux-observable';
 
 
 @NgModule({
@@ -34,14 +38,20 @@ import { IAppState, rootReducer, INITIAL_STATE } from './store/reducer';
     HttpClientModule,
     NgReduxModule
   ],
-  providers: [ArticlesService,CounterActions],
+  providers: [ArticlesService,CounterActions,
+    InitialArticleStateActions,InitialArticleStateEpics],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor( ngRedux:NgRedux<IAppState>, private devTools:DevToolsExtension){
-    const enhancers=isDevMode()&& devTools.isEnabled() ? [devTools.enhancer()]:[];
+  constructor( ngRedux:NgRedux<IAppState>, 
+    private devTools:DevToolsExtension,private initialStateEpic:InitialArticleStateEpics){
+    const middleWare = [
+      createEpicMiddleware(this.initialStateEpic.loadInitialState)
+    ]
+    const enhancers = isDevMode() && devTools.isEnabled() ? [devTools.enhancer()] : [];
     ngRedux.configureStore(
-      rootReducer,INITIAL_STATE,[],enhancers)
+      rootReducer,
+      {},middleWare,enhancers);
   }
  }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { select } from '@angular-redux/store';
+import { CounterActions } from '../store/actions/app.action';
+import { select, NgRedux } from '@angular-redux/store';
 import { Observable } from 'rxjs';
-import { CounterActions } from '../store/app.action';
+import { InitialArticleStateActions } from '../store/actions/article.action';
 
 @Component({
   selector: 'app-manager-articles',
@@ -15,18 +16,22 @@ export class ManagerArticlesComponent implements OnInit {
     pageNumber: undefined,
     pageSize: undefined
   }
-  @select() readonly count$:Observable<number>;
-
-  constructor(private counterActions:CounterActions) { }
+  @select(['countState','count']) readonly count$: Observable<number>;
+  
+  constructor(private actions: CounterActions, private articleActions:InitialArticleStateActions) { }
 
   ngOnInit() {
+    this.articleActions.loadInitialState(1);
+  }
 
+  increment() {
+    //this.ngRedux.dispatch(this.actions.increment()); // <- New
+    this.actions.increment();
   }
-  increment(){
-    this.counterActions.increment();
 
+  decrement() {
+    //this.ngRedux.dispatch(this.actions.decrement()); // <- New
+    this.actions.decrement()
   }
-  decrement(){
-    this.counterActions.decrement();
-  }
+
 }
