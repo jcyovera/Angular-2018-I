@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, isDevMode } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -12,6 +12,9 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ArticlesFilterComponent } from './articles-filter/articles-filter.component';
 import { ManagerArticlesComponent } from './manager-articles/manager-articles.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store';
+import { CounterActions } from './store/app.action';
+import { IAppState, rootReducer, INITIAL_STATE } from './store/reducer';
 
 
 @NgModule({
@@ -28,10 +31,17 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgReduxModule
   ],
-  providers: [ArticlesService],
+  providers: [ArticlesService,CounterActions],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor( ngRedux:NgRedux<IAppState>, private devTools:DevToolsExtension){
+    const enhancers=isDevMode()&& devTools.isEnabled() ? [devTools.enhancer()]:[];
+    ngRedux.configureStore(
+      rootReducer,INITIAL_STATE,[],enhancers)
+  }
+ }

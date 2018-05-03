@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { select } from '@angular-redux/store';
+import { Observable } from 'rxjs';
+import { CounterActions } from '../store/app.action';
 
 @Component({
   selector: 'app-manager-articles',
@@ -12,10 +15,18 @@ export class ManagerArticlesComponent implements OnInit {
     pageNumber: undefined,
     pageSize: undefined
   }
+  @select() readonly count$:Observable<number>;
 
-  constructor() { }
+  constructor(private counterActions:CounterActions) { }
 
   ngOnInit() {
-  }
 
+  }
+  increment(){
+    this.counterActions.increment();
+
+  }
+  decrement(){
+    this.counterActions.decrement();
+  }
 }

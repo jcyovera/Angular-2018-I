@@ -2,6 +2,11 @@
   <div class="two column row">
     <div class="right floated column">
         <app-articles-filter (onUpdateFilters)="filters=$event"></app-articles-filter>
+        <div>
+          Count: {{ count$ | async }}
+          <button (click)="increment()">+</button>
+          <button (click)="decrement()">-</button>
+        </div>
     </div>
   </div>
   <div class="four column row">

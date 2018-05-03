@@ -33,7 +33,6 @@ export class ArticleComponent implements OnInit {
     domain(link): string {
       try {
         // e.g. http://foo.com/path/to/bar
-        console.log("link",link);
         const domainAndPath: string = link.split('//')[1];
         // e.g. foo.com/path/to/bar
         return domainAndPath.split('/')[0];
