@@ -1,0 +1,10 @@
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-api-jwt\bin\Debug\netcoreapp2.0\WebApi.deps.json
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-api-jwt\bin\Debug\netcoreapp2.0\WebApi.runtimeconfig.json
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-api-jwt\bin\Debug\netcoreapp2.0\WebApi.runtimeconfig.dev.json
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-api-jwt\bin\Debug\netcoreapp2.0\WebApi.dll
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-api-jwt\bin\Debug\netcoreapp2.0\WebApi.pdb
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-api-jwt\obj\Debug\netcoreapp2.0\WebApi.csproj.CoreCompileInputs.cache
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-api-jwt\obj\Debug\netcoreapp2.0\WebApi.AssemblyInfoInputs.cache
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-api-jwt\obj\Debug\netcoreapp2.0\WebApi.AssemblyInfo.cs
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-api-jwt\obj\Debug\netcoreapp2.0\WebApi.dll
+C:\work\Belatrix\courses\Angular-20118-I\Git\Angular-2018-I\web-api-jwt\obj\Debug\netcoreapp2.0\WebApi.pdb

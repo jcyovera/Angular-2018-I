@@ -19,6 +19,15 @@ import { IAppState } from './store/models/state';
 import { InitialArticleStateActions } from './store/actions/article.action';
 import { InitialArticleStateEpics } from './store/epics/article.epic';
 import { createEpicMiddleware } from 'redux-observable';
+import { HttpModule } from '@angular/http';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register';
+import { AlertComponent } from './_directives';
+import { AppConfig } from './app.config';
+import { AuthGuard } from './_guards';
+import { AlertService, UserService, AuthenticationService } from './_services';
+import { RouteComponent } from './shared/router.component';
 
 
 @NgModule({
@@ -29,17 +38,29 @@ import { createEpicMiddleware } from 'redux-observable';
     ArticleComponent,
     SearchBarComponent,
     ArticlesFilterComponent,
-    ManagerArticlesComponent
-  ],
+    ManagerArticlesComponent,
+    LoginComponent,
+    HomeComponent,
+    RegisterComponent,
+    AlertComponent,
+    RouteComponent
+],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgReduxModule
+    NgReduxModule,
+    HttpModule
   ],
   providers: [ArticlesService,CounterActions,
-    InitialArticleStateActions,InitialArticleStateEpics],
+    InitialArticleStateActions,InitialArticleStateEpics,
+    AppConfig,
+    AuthGuard,
+    AlertService,
+    UserService,
+    AuthenticationService
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
