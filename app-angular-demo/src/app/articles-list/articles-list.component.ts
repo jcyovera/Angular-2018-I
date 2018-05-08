@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Article } from '../_models/article.model';
 import { ArticlesService } from '../shared/articles.service';
 import { SortingValues } from '../_models/enumerations';
@@ -8,7 +8,8 @@ import { select } from '@angular-redux/store';
 @Component({
   selector: 'app-articles-list',
   templateUrl: './articles-list.component.html',
-  styleUrls: ['./articles-list.component.scss']
+  styleUrls: ['./articles-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticlesListComponent implements OnInit, OnChanges {
   articles: Article[]; // <-- component property
@@ -26,7 +27,8 @@ export class ArticlesListComponent implements OnInit, OnChanges {
   @select(['articleState', 'articles']) articles$: Observable<any>;
   articlesSubscription: Subscription;
 
-  constructor(private articleService: ArticlesService) { }
+  constructor(private articleService: ArticlesService,
+    public cd: ChangeDetectorRef) { }
   sortedArticles(sortValue?: any): Article[] {
     let articlesSorted;
     console.log(this.articles);
@@ -69,6 +71,8 @@ export class ArticlesListComponent implements OnInit, OnChanges {
     console.log("changing", this.filters.sortBy);
     //this.sortValue = this.filters.sortBy;
     this.loadList();
+    this.cd.detectChanges();
+    this.cd.markForCheck();
   }
   loadList() {
     this.filterObservable = this.articleService.getList(this.filters)
