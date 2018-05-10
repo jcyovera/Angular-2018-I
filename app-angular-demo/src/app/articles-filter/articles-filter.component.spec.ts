@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ArticlesFilterComponent } from './articles-filter.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('ArticlesFilterComponent', () => {
   let component: ArticlesFilterComponent;
@@ -8,7 +9,8 @@ describe('ArticlesFilterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArticlesFilterComponent ]
+      declarations: [ ArticlesFilterComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   }));
