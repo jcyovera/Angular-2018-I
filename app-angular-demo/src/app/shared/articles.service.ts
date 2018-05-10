@@ -4,6 +4,7 @@ import { Observable, Subject } from 'rxjs/Rx';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operator/map';
 import { mapTo } from 'rxjs/operators';
+import { IArticleFilterParam } from '../_models/shared.model';
 
 @Injectable()
 export class ArticlesService {
@@ -22,7 +23,7 @@ export class ArticlesService {
     return this.http.post<Article[]>(`${this.apiUrl}/articles`, newArticle)
     .pipe();
   }
-  getList(filters:MyApp.Models.IArticleFilterParam): Observable<Article[]> {
+  getList(filters:IArticleFilterParam): Observable<Article[]> {
     let params = new HttpParams();
     params = params.append('_sort', filters.sortBy.toLowerCase());
     params = params.append('_order',"desc");

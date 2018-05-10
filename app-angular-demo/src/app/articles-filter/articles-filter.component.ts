@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SortingValues } from '../_models/enumerations';
+import { IOptionElement, IArticleFilterParam } from '../_models/shared.model';
 
 @Component({
   selector: 'app-articles-filter',
@@ -7,8 +8,8 @@ import { SortingValues } from '../_models/enumerations';
   styleUrls: ['./articles-filter.component.scss']
 })
 export class ArticlesFilterComponent implements OnInit {
-  sortListFilters: MyApp.Models.IOptionElement[]=[];
-  filters: MyApp.Models.IArticleFilterParam = {
+  sortListFilters: IOptionElement[]=[];
+  filters: IArticleFilterParam = {
     sortBy: "",
     searchText: "",
     pageNumber: undefined,

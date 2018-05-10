@@ -1,4 +1,4 @@
-declare module MyApp.Models {
+
     export interface IOptionElement{
         text:string,
         value:string
@@ -10,4 +10,3 @@ declare module MyApp.Models {
         pageNumber:number;
         searchText:string;
     }
-}

@@ -4,6 +4,7 @@ import { ArticlesService } from '../shared/articles.service';
 import { SortingValues } from '../_models/enumerations';
 import { Observable, Subscription } from "rxjs/Rx";
 import { select } from '@angular-redux/store';
+import { IArticleFilterParam } from '../_models/shared.model';
 
 @Component({
   selector: 'app-articles-list',
@@ -14,7 +15,7 @@ import { select } from '@angular-redux/store';
 export class ArticlesListComponent implements OnInit, OnChanges {
   articles: Article[]; // <-- component property
   sortValue: any = "";
-  filters: MyApp.Models.IArticleFilterParam = {
+  filters: IArticleFilterParam = {
     sortBy: "",
     searchText: "",
     pageNumber: undefined,
